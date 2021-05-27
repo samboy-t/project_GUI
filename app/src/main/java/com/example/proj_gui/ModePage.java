@@ -17,7 +17,6 @@ import android.widget.Toast;
 public class ModePage extends AppCompatActivity {
 
     float x1, x2, y1, y2;
-    private EditText StaffPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +65,8 @@ public class ModePage extends AppCompatActivity {
     }
 
     public void staff_click(View staff_view){
-        StaffPass = (EditText) findViewById(R.id.staff_pass);
-        if(StaffPass.getText().toString().trim().equals("1234")){
+        EditText staffPass = (EditText) findViewById(R.id.staff_pass);
+        if(staffPass.getText().toString().trim().equals("1234")){
             Intent k = new Intent(ModePage.this, StaffPage.class);
             startActivity(k);
         } else {
