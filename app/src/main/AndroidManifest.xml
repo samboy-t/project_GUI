@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.proj_gui">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Proj_GUI">
+        <activity
+            android:name=".StaffPage"
+            android:label="Edit Database"/>
+        <activity
+            android:name=".StudentPage"
+            android:label="Borrow Equipment" />
+        <activity
+            android:name=".SearchPage"
+            android:label="Search" />
+        <activity
+            android:name=".ModePage"
+            android:label="Choose Mode" />
+        <activity
+            android:name=".MainActivity"
+            android:label="List of Equipment">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
