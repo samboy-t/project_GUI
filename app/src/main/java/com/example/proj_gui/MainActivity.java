@@ -1,11 +1,11 @@
 package com.example.proj_gui;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -18,11 +18,12 @@ public class MainActivity extends AppCompatActivity {
     float x1, x2, y1, y2;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
 
         Spinner tb_drop = (Spinner) findViewById(R.id.equipment_drop);
 
@@ -30,44 +31,108 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         tb_drop.setAdapter(adapter);
 
-
         TableLayout dbTable = (TableLayout) findViewById(R.id.equipment_table);
 
-        TableRow tb_head = (TableRow) findViewById(R.id.tb_headings);
-        /*tb_head.setId(1);
-        tb_head.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));*/
-
         TextView c1 = (TextView) findViewById(R.id.c1_head);
-        //c1.setId(10);
-        //c1.setText("Equipment Id");
-
-        //tb_head.addView(c1);
-
         TextView c2 = (TextView) findViewById(R.id.c2_head);
-        //c2.setId(11);
-        //c2.setText("Equipment Name");
+        TextView c3 = (TextView) findViewById(R.id.c3_head);
+        TextView c4 = (TextView) findViewById(R.id.c4_head);
+        TextView c5 = (TextView) findViewById(R.id.c5_head);
 
-        //tb_head.addView(c2);
+        c1.setPadding(10,0,10,0);
+        c2.setPadding(10,0,10,0);
+        c3.setPadding(10,0,10,0);
+        c4.setPadding(10,0,10,0);
+        c5.setPadding(10,0,10,0);
 
-        TextView c3 = (TextView) findViewById(R.id.c2_head);
-        //c3.setId(11);
-        //c3.setText("Equipment Name");
+        tb_drop.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-        //tb_head.addView(c3);
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
 
-        TextView c4 = (TextView) findViewById(R.id.c2_head);
-        //c4.setId(11);
-        //c4.setText("Equipment Name");
+                switch (pos){
+                    case 1:
+                        c1.setText(getString(R.string.c1_head1));
+                        c2.setText(getString(R.string.c2_head1));
+                        c3.setText(getString(R.string.c3_head1));
+                        c4.setText(getString(R.string.c4_head1));
+                        c5.setText(getString(R.string.c5_head1));
 
-        //tb_head.addView(c4);
+                        Integer row = 1;
+                        Student student = dbHandler.readStudent(Integer.toString(row));
 
-        TextView c5 = (TextView) findViewById(R.id.c2_head);
-        //c5.setId(11);
-        //c5.setText("Equipment Name");
+                        while (student != null) {
 
-        //tb_head.addView(c5);
+                            TableRow tb_row = new TableRow(dbTable.getContext());
+                            tb_row.setId(row);
+                            tb_row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
 
-        //dbTable.addView(tb_head, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,TableLayout.LayoutParams.WRAP_CONTENT));
+                            TextView c1 = new TextView(tb_row.getContext());
+                            c1.setId(row);
+                            c1.setText(String.valueOf(student.getStudentName()));
+                            c1.setBackground(getDrawable(R.drawable.border2));
+
+                            tb_row.addView(c1);
+
+                            TextView c2 = new TextView(tb_row.getContext());
+                            c2.setId(row);
+                            c2.setText(String.valueOf(student.getStudentEmail()));
+                            c2.setBackground(getDrawable(R.drawable.border2));
+
+                            tb_row.addView(c2);
+
+                            TextView c3 = new TextView(tb_row.getContext());
+                            c3.setId(row);
+                            c3.setText(String.valueOf(student.getStudentMobile()));
+                            c3.setBackground(getDrawable(R.drawable.border2));
+
+                            tb_row.addView(c3);
+
+                            TextView c4 = new TextView(tb_row.getContext());
+                            c4.setId(row);
+                            c4.setText(String.valueOf(student.getItemID()));
+                            c4.setBackground(getDrawable(R.drawable.border2));
+
+                            tb_row.addView(c4);
+
+                            TextView c5 = new TextView(tb_row.getContext());
+                            c5.setId(row);
+                            c5.setText(String.valueOf(student.getStudentQuantity()));
+                            c5.setBackground(getDrawable(R.drawable.border2));
+
+                            tb_row.addView(c5);
+
+                            dbTable.addView(tb_row, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+
+                            c1.setPadding(10,0,10,0);
+                            c2.setPadding(10,0,10,0);
+                            c3.setPadding(10,0,10,0);
+                            c4.setPadding(10,0,10,0);
+                            c5.setPadding(10,0,10,0);
+
+                            row = row + 1;
+                            student = dbHandler.readStudent(Integer.toString(row));
+                        }
+                        break;
+                    case 2:
+                        c1.setText(getString(R.string.c1_head2));
+                        c2.setText(getString(R.string.c2_head2));
+                        c3.setText(getString(R.string.c3_head2));
+                        c4.setText(getString(R.string.c4_head2));
+                        c5.setText(getString(R.string.c5_head2));
+                        break;
+                    case 0:
+                        c1.setText("");
+                        c2.setText("");
+                        c3.setText("");
+                        c4.setText("");
+                        c5.setText("");
+                        break;
+                }
+            }
+
+            public void onNothingSelected(AdapterView<?> parent){
+            }
+        });
 
         // database stuff
 

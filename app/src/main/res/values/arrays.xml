@@ -12,7 +12,7 @@
 
     <string-array name="table_select">
         <item>Select Table:</item>
-        <item>List of Equipment</item>
         <item>Student Information</item>
+        <item>List of Equipment</item>
     </string-array>
 </resources>

@@ -103,6 +103,33 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return student;
     }
 
+    public Student readStudent(String col) {
+        String query = "SELECT * FROM " + TABLE_STUDENTS + " WHERE " + COLUMN_ID + " = \"" + col + "\"";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        Student student = new Student();
+
+        if(cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            student.setID(Integer.parseInt(cursor.getString(0)));
+            student.setStudentName(cursor.getString(1));
+            student.setStudentEmail(cursor.getString(2));
+            student.setStudentMobile(cursor.getString(3));
+            student.setItemID(Integer.parseInt(cursor.getString(4)));
+            student.setStudentQuantity(Integer.parseInt(cursor.getString(5)));
+            //product.setProductQuantity(Integer.parseInt(cursor.getString(2)));
+            cursor.close();
+        }
+        else {
+            student = null;
+        }
+        db.close();
+        return student;
+    }
+
     public boolean deleteStudent(String studentName) {
         boolean result = false;
 
