@@ -1,6 +1,7 @@
 package com.example.proj_gui;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,7 +12,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         tb_drop.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
 
                 switch (pos){
@@ -69,35 +73,35 @@ public class MainActivity extends AppCompatActivity {
                             TextView c1 = new TextView(tb_row.getContext());
                             c1.setId(row);
                             c1.setText(String.valueOf(student.getStudentName()));
-                            c1.setBackground(getDrawable(R.drawable.border2));
+                            c1.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.border2));
 
                             tb_row.addView(c1);
 
                             TextView c2 = new TextView(tb_row.getContext());
                             c2.setId(row);
                             c2.setText(String.valueOf(student.getStudentEmail()));
-                            c2.setBackground(getDrawable(R.drawable.border2));
+                            c2.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.border2));
 
                             tb_row.addView(c2);
 
                             TextView c3 = new TextView(tb_row.getContext());
                             c3.setId(row);
                             c3.setText(String.valueOf(student.getStudentMobile()));
-                            c3.setBackground(getDrawable(R.drawable.border2));
+                            c3.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.border2));
 
                             tb_row.addView(c3);
 
                             TextView c4 = new TextView(tb_row.getContext());
                             c4.setId(row);
                             c4.setText(String.valueOf(student.getItemID()));
-                            c4.setBackground(getDrawable(R.drawable.border2));
+                            c4.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.border2));
 
                             tb_row.addView(c4);
 
                             TextView c5 = new TextView(tb_row.getContext());
                             c5.setId(row);
                             c5.setText(String.valueOf(student.getStudentQuantity()));
-                            c5.setBackground(getDrawable(R.drawable.border2));
+                            c5.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.border2));
 
                             tb_row.addView(c5);
 
