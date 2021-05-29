@@ -50,5 +50,8 @@
     <string name="bt_find">FIND</string>
     <string name="bt_delete">DELETE</string>
     <string name="not_assigned">Not Assigned</string>
+    <string name="item_name">Item Name:</string>
+    <string name="item_price">Item Price:</string>
+    <string name="item_stock">Total Item Stock:</string>
 
 </resources>
