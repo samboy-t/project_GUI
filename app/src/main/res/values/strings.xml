@@ -44,5 +44,12 @@
     <string name="c3_head2">Lab location</string>
     <string name="c4_head2">Quantity available</string>
     <string name="c5_head2">Borrow duration</string>
+    <string name="s_name">Student Name:</string>
+    <string name="s_id">Student ID:</string>
+    <string name="mobile_txt">Mobile Number:</string>
+    <string name="bt_add">ADD</string>
+    <string name="bt_find">FIND</string>
+    <string name="bt_delete">DELETE</string>
+    <string name="not_assigned">Not Assigned</string>
 
 </resources>
