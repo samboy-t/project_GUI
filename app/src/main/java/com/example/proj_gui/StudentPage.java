@@ -40,12 +40,12 @@ public class StudentPage extends AppCompatActivity {
 
     public void borrow_click(View borrow_view){
         CheckBox emailChk = (CheckBox) findViewById(R.id.email_chk);
-        if(emailChk.isChecked()){
-            Toast borrow_toast = Toast.makeText(getApplicationContext(), "Borrow request confirmed. Sending e-mail..", Toast.LENGTH_SHORT);
+        if(!emailChk.isChecked()){
+            Toast borrow_toast = Toast.makeText(getApplicationContext(), "Borrow request confirmed.", Toast.LENGTH_SHORT);
             borrow_toast.setGravity(Gravity.CENTER, 0, 0);
             borrow_toast.show();
         } else {
-            Toast email_toast = Toast.makeText(getApplicationContext(), "Borrow request confirmed.", Toast.LENGTH_SHORT);
+            Toast email_toast = Toast.makeText(getApplicationContext(), "Borrow request confirmed. Sending e-mail..", Toast.LENGTH_SHORT);
             email_toast.setGravity(Gravity.CENTER, 0, 0);
             email_toast.show();
         }

@@ -33,5 +33,16 @@
     <string name="chk_txt">Email an invoice of the borrow order?</string>
     <string name="confirm">Please double check the details and then confirm the order by pressing the button below.</string>
     <string name="email_hint">s1234567@student.rmit.edu.au</string>
-    <string name="borrow_hint" />
+    <string name="blank_hint" />
+    <string name="c1_head1">Name</string>
+    <string name="c2_head1">E-mail</string>
+    <string name="c3_head1">Phone</string>
+    <string name="c4_head1">Item borrowed</string>
+    <string name="c5_head1">Quantity borrowed</string>
+    <string name="c1_head2">Item ID</string>
+    <string name="c2_head2">Price</string>
+    <string name="c3_head2">Lab location</string>
+    <string name="c4_head2">Quantity available</string>
+    <string name="c5_head2">Borrow duration</string>
+
 </resources>

@@ -22,7 +22,7 @@
             android:label="Choose Mode" />
         <activity
             android:name=".MainActivity"
-            android:label="List of Equipment">
+            android:label="Lab Equipment Management">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

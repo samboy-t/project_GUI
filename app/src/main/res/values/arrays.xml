@@ -9,4 +9,10 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="table_select">
+        <item>Select Table:</item>
+        <item>List of Equipment</item>
+        <item>Student Information</item>
+    </string-array>
 </resources>
