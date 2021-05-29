@@ -20,11 +20,12 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_STUDENTITEMID = "itemID";
     public static final String COLUMN_STUDENTQUANTITY = "studentQuantity";
 
-//    private static final String TABLE_ITEMS = "items";
-//
-//    public static final String COLUMN_ITEMNAME = "itemName";
-//    public static final String COLUMN_ITEMCOST = "itemCost";
-//    public static final String COLUMN_ITEMSTOCK = "itemStock";
+    private static final String TABLE_ITEMS = "items";
+
+
+    public static final String COLUMN_ITEMNAME = "itemName";
+    public static final String COLUMN_ITEMCOST = "itemCost";
+    public static final String COLUMN_ITEMSTOCK = "itemStock";
 
 
 
@@ -46,13 +47,13 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 + ")";
         db.execSQL(CREATE_STUDENTS_TABLE);
 
-//        String CREATE_ITEMS_TABLE = "CREATE TABLE " +
-//                TABLE_ITEMS + "("
-//                + COLUMN_ID + " INTEGER PRIMARY KEY,"
-//                + COLUMN_ITEMNAME + " TEXT,"
-//                + COLUMN_ITEMCOST + " INTEGER,"
-//                + COLUMN_ITEMSTOCK + " INTEGER" + ")";
-//        db.execSQL(CREATE_ITEMS_TABLE);
+        String CREATE_ITEMS_TABLE = "CREATE TABLE " +
+                TABLE_ITEMS + "("
+                + COLUMN_ID + " INTEGER PRIMARY KEY,"
+                + COLUMN_ITEMNAME + " TEXT,"
+                + COLUMN_ITEMCOST + " INTEGER,"
+                + COLUMN_ITEMSTOCK + " INTEGER" + ")";
+        db.execSQL(CREATE_ITEMS_TABLE);
     }
 
     @Override
@@ -125,62 +126,62 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return result;
     }
 
-//    public void addItem(Item item) {
-//        ContentValues values = new ContentValues();
-//        values.put(COLUMN_ITEMNAME, item.getItemName());
-//        values.put(COLUMN_ITEMCOST, item.getItemCost());
-//        values.put(COLUMN_ITEMSTOCK, item.getItemStock());
-//
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        db.insert(TABLE_ITEMS, null, values);
-//        db.close();
-//    }
-//
-//    public Item findItem(String itemName) {
-//        String query = "SELECT * FROM " + TABLE_ITEMS + " WHERE " + COLUMN_ITEMNAME+ " = \"" + itemName + "\"";
-//
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        Cursor cursor = db.rawQuery(query, null);
-//
-//        Item item = new Item();
-//
-//        if(cursor.moveToFirst()) {
-//            cursor.moveToFirst();
-//            item.setID(Integer.parseInt(cursor.getString(0)));
-//            item.setItemName(cursor.getString(1));
-//            item.setItemCost(Integer.parseInt(cursor.getString(2)));
-//            item.setItemStock(Integer.parseInt(cursor.getString(3)));
-//            //product.setProductQuantity(Integer.parseInt(cursor.getString(2)));
-//            cursor.close();
-//        }
-//        else {
-//            item = null;
-//        }
-//        db.close();
-//        return item;
-//    }
-//
-//    public boolean deleteItem(String itemName) {
-//        boolean result = false;
-//
-//        String query = "SELECT * FROM " + TABLE_ITEMS + " WHERE " + COLUMN_ITEMNAME + " = \"" + itemName + "\"";
-//
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        Cursor cursor = db.rawQuery(query, null);
-//
-//        Item item = new Item();
-//
-//        if(cursor.moveToFirst()) {
-//            item.setID(Integer.parseInt(cursor.getString(0)));
-//            db.delete(TABLE_STUDENTS, COLUMN_ID + " = ?",
-//                    new String[]{String.valueOf(item.getID())});
-//            cursor.close();
-//            result = true;
-//        }
-//        db.close();
-//        return result;
-//    }
+    public void addItem(Item item) {
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_ITEMNAME, item.getItemName());
+        values.put(COLUMN_ITEMCOST, item.getItemCost());
+        values.put(COLUMN_ITEMSTOCK, item.getItemStock());
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.insert(TABLE_ITEMS, null, values);
+        db.close();
+    }
+
+    public Item findItem(String itemID) {
+        String query = "SELECT * FROM " + TABLE_ITEMS + " WHERE " + COLUMN_ID+ " = \"" + itemID + "\"";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        Item item = new Item();
+
+        if(cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            item.setID(Integer.parseInt(cursor.getString(0)));
+            item.setItemName(cursor.getString(1));
+            item.setItemCost(Integer.parseInt(cursor.getString(2)));
+            item.setItemStock(Integer.parseInt(cursor.getString(3)));
+            //product.setProductQuantity(Integer.parseInt(cursor.getString(2)));
+            cursor.close();
+        }
+        else {
+            item = null;
+        }
+        db.close();
+        return item;
+    }
+
+    public boolean deleteItem(String itemID) {
+        boolean result = false;
+
+        String query = "SELECT * FROM " + TABLE_ITEMS + " WHERE " + COLUMN_ID + " = \"" + itemID + "\"";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        Item item = new Item();
+
+        if(cursor.moveToFirst()) {
+            item.setID(Integer.parseInt(cursor.getString(0)));
+            db.delete(TABLE_STUDENTS, COLUMN_ID + " = ?",
+                    new String[]{String.valueOf(item.getID())});
+            cursor.close();
+            result = true;
+        }
+        db.close();
+        return result;
+    }
 }
