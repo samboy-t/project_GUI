@@ -10,7 +10,8 @@ public class Item {
 
     }
 
-    public Item(String itemName, int itemCost, int itemStock){
+    public Item(int id, String itemName, int itemCost, int itemStock){
+        this.id = id;
         this.itemName = itemName;
         this.itemCost = itemCost;
         this.itemStock = itemStock;
