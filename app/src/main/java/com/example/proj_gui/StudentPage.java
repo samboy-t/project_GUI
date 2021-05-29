@@ -5,8 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class StudentPage extends AppCompatActivity {
 
@@ -31,5 +36,18 @@ public class StudentPage extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
         return true;
+    }
+
+    public void borrow_click(View borrow_view){
+        CheckBox emailChk = (CheckBox) findViewById(R.id.email_chk);
+        if(emailChk.isChecked()){
+            Toast borrow_toast = Toast.makeText(getApplicationContext(), "Borrow request confirmed. Sending e-mail..", Toast.LENGTH_SHORT);
+            borrow_toast.setGravity(Gravity.CENTER, 0, 0);
+            borrow_toast.show();
+        } else {
+            Toast email_toast = Toast.makeText(getApplicationContext(), "Borrow request confirmed.", Toast.LENGTH_SHORT);
+            email_toast.setGravity(Gravity.CENTER, 0, 0);
+            email_toast.show();
+        }
     }
 }

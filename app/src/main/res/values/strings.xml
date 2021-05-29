@@ -13,8 +13,7 @@
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>
     <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="mode_txt">Students may borrow equipment and staff may edit or analyse the database with the requirement of a password.</string>
     <string name="student">Student</string>
@@ -26,5 +25,13 @@
     <string name="welcome_mode">Click on a button below to select a mode. Your mode will influence which functions of the app you are able to access.</string>
     <string name="menu_search">Search</string>
     <string name="menu_return">Return to Mode Page</string>
-    <string name="borrow_txt">Enter your student email address, the item you wish to borrow, and how many of that item.</string>
+    <string name="borrow_txt">Enter your details and the details the item you wish to borrow in the spaces below.</string>
+    <string name="borrow_item">Borrow Item</string>
+    <string name="stud_email">Student email:</string>
+    <string name="item_id">Item ID:</string>
+    <string name="quant">Quantity:</string>
+    <string name="chk_txt">Email an invoice of the borrow order?</string>
+    <string name="confirm">Please double check the details and then confirm the order by pressing the button below.</string>
+    <string name="email_hint">s1234567@student.rmit.edu.au</string>
+    <string name="borrow_hint" />
 </resources>
