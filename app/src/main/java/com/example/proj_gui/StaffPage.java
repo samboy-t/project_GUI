@@ -22,7 +22,7 @@ public class StaffPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_page);
 
-        idView = (TextView) findViewById(R.id.textView);
+        idView = (TextView) findViewById(R.id.i_id);
         itemNameBox= (EditText) findViewById(R.id.i_name);
         itemCostBox = (EditText) findViewById(R.id.i_cost);
         itemStockBox = (EditText) findViewById(R.id.i_stock);

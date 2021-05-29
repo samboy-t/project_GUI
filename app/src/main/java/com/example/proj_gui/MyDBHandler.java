@@ -155,6 +155,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     public void addItem(Item item) {
         ContentValues values = new ContentValues();
+        values.put(COLUMN_ID, item.getID());
         values.put(COLUMN_ITEMNAME, item.getItemName());
         values.put(COLUMN_ITEMCOST, item.getItemCost());
         values.put(COLUMN_ITEMSTOCK, item.getItemStock());
