@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -15,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     float x1, x2, y1, y2;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -65,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
         //tb_head.addView(c5);
 
         //dbTable.addView(tb_head, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,TableLayout.LayoutParams.WRAP_CONTENT));
+
+        // database stuff
+
     }
 
     public boolean onTouchEvent(MotionEvent touchEvent){
