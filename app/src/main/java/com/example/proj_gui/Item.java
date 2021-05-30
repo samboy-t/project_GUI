@@ -5,16 +5,18 @@ public class Item {
     private String itemName;
     private int itemCost;
     private int itemStock;
+    private String itemLab;
 
     public Item(){
 
     }
 
-    public Item(int id, String itemName, int itemCost, int itemStock){
+    public Item(int id, String itemName, int itemCost, int itemStock, String itemLab){
         this.id = id;
         this.itemName = itemName;
         this.itemCost = itemCost;
         this.itemStock = itemStock;
+        this.itemLab = itemLab;
     }
 
     public void setID(int id){
@@ -48,5 +50,9 @@ public class Item {
     public int getItemStock() {
         return this.itemStock;
     }
+
+    public void setItemLab(String itemLab) {this.itemLab = itemLab;}
+
+    public String getItemLab() {return this.itemLab;}
 
 }

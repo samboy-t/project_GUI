@@ -26,6 +26,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_ITEMNAME = "itemName";
     public static final String COLUMN_ITEMCOST = "itemCost";
     public static final String COLUMN_ITEMSTOCK = "itemStock";
+    public static final String COLUMN_ITEMLAB = "itemLab";
 
 
 
@@ -52,7 +53,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 + COLUMN_ID + " INTEGER PRIMARY KEY,"
                 + COLUMN_ITEMNAME + " TEXT,"
                 + COLUMN_ITEMCOST + " INTEGER,"
-                + COLUMN_ITEMSTOCK + " INTEGER" + ")";
+                + COLUMN_ITEMSTOCK + " INTEGER,"
+                + COLUMN_ITEMLAB + " TEXT" + ")";
         db.execSQL(CREATE_ITEMS_TABLE);
     }
 
@@ -159,6 +161,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_ITEMNAME, item.getItemName());
         values.put(COLUMN_ITEMCOST, item.getItemCost());
         values.put(COLUMN_ITEMSTOCK, item.getItemStock());
+        values.put(COLUMN_ITEMLAB, item.getItemLab());
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -182,6 +185,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
             item.setItemCost(Integer.parseInt(cursor.getString(2)));
             item.setItemStock(Integer.parseInt(cursor.getString(3)));
             //product.setProductQuantity(Integer.parseInt(cursor.getString(2)));
+            item.setItemLab(cursor.getString(4));
             cursor.close();
         }
         else {
