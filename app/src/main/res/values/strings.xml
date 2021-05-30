@@ -53,5 +53,6 @@
     <string name="item_name">Item Name:</string>
     <string name="item_price">Item Price:</string>
     <string name="item_stock">Total Item Stock:</string>
+    <string name="Add">ADD</string>
 
 </resources>
