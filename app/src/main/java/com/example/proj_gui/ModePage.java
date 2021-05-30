@@ -65,7 +65,7 @@ public class ModePage extends AppCompatActivity {
     }
 
     public void staff_click(View staff_view){
-        EditText staffPass = (EditText) findViewById(R.id.staff_pass);
+        EditText staffPass = findViewById(R.id.staff_pass);
         if(staffPass.getText().toString().trim().equals("1234")){
             Intent k = new Intent(ModePage.this, StaffPage.class);
             startActivity(k);

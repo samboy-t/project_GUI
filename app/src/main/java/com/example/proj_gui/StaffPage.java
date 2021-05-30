@@ -23,11 +23,11 @@ public class StaffPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_page);
 
-        idView = (TextView) findViewById(R.id.i_id);
-        itemNameBox= (EditText) findViewById(R.id.i_name);
-        itemCostBox = (EditText) findViewById(R.id.i_cost);
-        itemStockBox = (EditText) findViewById(R.id.i_stock);
-        itemLabBox = (EditText) findViewById(R.id.i_lab);
+        idView = findViewById(R.id.i_id);
+        itemNameBox= findViewById(R.id.i_name);
+        itemCostBox = findViewById(R.id.i_cost);
+        itemStockBox = findViewById(R.id.i_stock);
+        itemLabBox = findViewById(R.id.i_lab);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class StaffPage extends AppCompatActivity {
             itemLabBox.setText(String.valueOf(item.getItemLab()));
 
         } else {
-            idView.setText("No Match Found");
+            idView.setText(getString(R.string.no_match));
         }
     }
 
@@ -85,11 +85,11 @@ public class StaffPage extends AppCompatActivity {
         MyDBHandler dbHandler = new MyDBHandler(this, null);
         boolean result = dbHandler.deleteItem(idView.getText().toString());
         if (result) {
-            idView.setText("Record Deleted");
+            idView.setText(getString(R.string.deleted));
             itemNameBox.setText("");
             itemCostBox.setText("");
             itemStockBox.setText("");
             itemLabBox.setText("");
-        } else idView.setText("No Match Found");
+        } else idView.setText(getString(R.string.no_match));
     }
 }

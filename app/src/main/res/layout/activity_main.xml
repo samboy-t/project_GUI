@@ -78,7 +78,8 @@
                 android:id="@+id/tb_headings"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/border">
+                android:background="@drawable/border"
+                tools:ignore="UselessParent">
 
                 <TextView
                     android:id="@+id/c1_head"

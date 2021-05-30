@@ -28,14 +28,12 @@ public class StudentPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_page);
 
-        // database stuff
-        idView = (TextView) findViewById(R.id.textView);
-        studentNameBox = (EditText) findViewById(R.id.s_name);
-        //quantityBox = (EditText) findViewById(R.id.pr_quantity);
-        studentEmailBox = (EditText) findViewById(R.id.s_email);
-        studentMobileBox = (EditText) findViewById(R.id.s_mobile);
-        studentItemBox = (EditText) findViewById(R.id.s_item);
-        studentQuantityBox = (EditText) findViewById(R.id.s_quantity);
+        idView = findViewById(R.id.textView);
+        studentNameBox = findViewById(R.id.s_name);
+        studentEmailBox = findViewById(R.id.s_email);
+        studentMobileBox = findViewById(R.id.s_mobile);
+        studentItemBox = findViewById(R.id.s_item);
+        studentQuantityBox = findViewById(R.id.s_quantity);
     }
 
     @Override
@@ -68,7 +66,7 @@ public class StudentPage extends AppCompatActivity {
         studentItemBox.setText("");
         studentQuantityBox.setText("");
 
-        CheckBox emailChk = (CheckBox) findViewById(R.id.email_chk);
+        CheckBox emailChk = findViewById(R.id.email_chk);
         if(!emailChk.isChecked()){
             Toast borrow_toast = Toast.makeText(getApplicationContext(), "Borrow request confirmed.", Toast.LENGTH_SHORT);
             borrow_toast.setGravity(Gravity.CENTER, 0, 0);
@@ -93,7 +91,7 @@ public class StudentPage extends AppCompatActivity {
             studentItemBox.setText(String.valueOf(student.getItemID()));
             studentQuantityBox.setText(String.valueOf(student.getStudentQuantity()));
         } else {
-            idView.setText("No Match Found");
+            idView.setText(getString(R.string.no_match));
         }
     }
 
@@ -101,12 +99,12 @@ public class StudentPage extends AppCompatActivity {
         MyDBHandler dbHandler = new MyDBHandler(this, null);
         boolean result = dbHandler.deleteStudent(studentNameBox.getText().toString());
         if (result) {
-            idView.setText("Record Deleted");
+            idView.setText(getString(R.string.deleted));
             studentNameBox.setText("");
             studentEmailBox.setText("");
             studentMobileBox.setText("");
             studentItemBox.setText("");
             studentQuantityBox.setText("");
-        } else idView.setText("No Match Found");
+        } else idView.setText(getString(R.string.no_match));
     }
 }

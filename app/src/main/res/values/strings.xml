@@ -56,5 +56,7 @@
     <string name="item_stock">Total Item Stock:</string>
     <string name="Add">ADD</string>
     <string name="item_lab">Laboratory:</string>
+    <string name="no_match">No Match Found</string>
+    <string name="deleted">Record Deleted</string>
 
 </resources>
