@@ -30,7 +30,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
 
 
-    public MyDBHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public MyDBHandler(@Nullable Context context, @Nullable SQLiteDatabase.CursorFactory factory) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
 

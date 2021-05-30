@@ -56,7 +56,7 @@ public class StudentPage extends AppCompatActivity {
     }
 
     public void newStudent(View view) {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+        MyDBHandler dbHandler = new MyDBHandler(this, null);
         int item = Integer.parseInt(studentItemBox.getText().toString());
         int quantity = Integer.parseInt(studentQuantityBox.getText().toString());
         Student student = new Student(studentNameBox.getText().toString(), studentEmailBox.getText().toString(), studentMobileBox.getText().toString(),
@@ -81,7 +81,7 @@ public class StudentPage extends AppCompatActivity {
     }
 
     public void lookupStudent(View view) {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+        MyDBHandler dbHandler = new MyDBHandler(this, null);
         Student student = dbHandler.findStudent(studentNameBox.getText().toString());
         //Student student = dbHandler.findStudent(studentEmailBox.getText().toString());
 
@@ -98,7 +98,7 @@ public class StudentPage extends AppCompatActivity {
     }
 
     public void removeStudent(View view) {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+        MyDBHandler dbHandler = new MyDBHandler(this, null);
         boolean result = dbHandler.deleteStudent(studentNameBox.getText().toString());
         if (result) {
             idView.setText("Record Deleted");
