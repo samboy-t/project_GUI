@@ -22,7 +22,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     private static final String TABLE_ITEMS = "items";
 
-
     public static final String COLUMN_ITEMNAME = "itemName";
     public static final String COLUMN_ITEMCOST = "itemCost";
     public static final String COLUMN_ITEMSTOCK = "itemStock";
