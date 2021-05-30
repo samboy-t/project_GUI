@@ -16,6 +16,7 @@ public class StaffPage extends AppCompatActivity {
     EditText itemNameBox;
     EditText itemCostBox;
     EditText itemStockBox;
+    EditText itemLabBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -26,6 +27,7 @@ public class StaffPage extends AppCompatActivity {
         itemNameBox= (EditText) findViewById(R.id.i_name);
         itemCostBox = (EditText) findViewById(R.id.i_cost);
         itemStockBox = (EditText) findViewById(R.id.i_stock);
+        itemLabBox = (EditText) findViewById(R.id.i_lab);
     }
 
     @Override
@@ -51,12 +53,13 @@ public class StaffPage extends AppCompatActivity {
         int itemCost = Integer.parseInt(itemCostBox.getText().toString());
         int itemStock = Integer.parseInt(itemStockBox.getText().toString());
         // public Item(int id, String itemName, int itemCost, int itemStock)
-        Item item = new Item(id, itemNameBox.getText().toString(), itemCost, itemStock);
+        Item item = new Item(id, itemNameBox.getText().toString(), itemCost, itemStock, itemLabBox.getText().toString());
         dbHandler.addItem(item);
         idView.setText("");
         itemNameBox.setText("");
         itemCostBox.setText("");
         itemStockBox.setText("");
+        itemLabBox.setText("");
 
     }
 
@@ -71,6 +74,7 @@ public class StaffPage extends AppCompatActivity {
             itemNameBox.setText(String.valueOf(item.getItemName()));
             itemCostBox.setText(String.valueOf(item.getItemCost()));
             itemStockBox.setText(String.valueOf(item.getItemStock()));
+            itemLabBox.setText(String.valueOf(item.getItemLab()));
 
         } else {
             idView.setText("No Match Found");
@@ -85,6 +89,7 @@ public class StaffPage extends AppCompatActivity {
             itemNameBox.setText("");
             itemCostBox.setText("");
             itemStockBox.setText("");
+            itemLabBox.setText("");
         } else idView.setText("No Match Found");
     }
 }
