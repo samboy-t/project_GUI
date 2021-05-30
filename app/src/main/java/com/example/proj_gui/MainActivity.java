@@ -69,39 +69,39 @@ public class MainActivity extends AppCompatActivity {
                             if (student != null){
 
                                 TableRow tb_row = new TableRow(dbTable.getContext());
-                                //tb_row.setId(row);
+                                tb_row.setId(row);
                                 tb_row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
 
                                 TextView c1 = new TextView(tb_row.getContext());
-                                //c1.setId(row);
+                                c1.setId(row);
                                 c1.setText(String.valueOf(student.getStudentName()));
                                 c1.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.border2));
 
                                 tb_row.addView(c1);
 
                                 TextView c2 = new TextView(tb_row.getContext());
-                                //c2.setId(row);
+                                c2.setId(row);
                                 c2.setText(String.valueOf(student.getStudentEmail()));
                                 c2.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.border2));
 
                                 tb_row.addView(c2);
 
                                 TextView c3 = new TextView(tb_row.getContext());
-                                //c3.setId(row);
+                                c3.setId(row);
                                 c3.setText(String.valueOf(student.getStudentMobile()));
                                 c3.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.border2));
 
                                 tb_row.addView(c3);
 
                                 TextView c4 = new TextView(tb_row.getContext());
-                                //c4.setId(row);
+                                c4.setId(row);
                                 c4.setText(String.valueOf(student.getItemID()));
                                 c4.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.border2));
 
                                 tb_row.addView(c4);
 
                                 TextView c5 = new TextView(tb_row.getContext());
-                                //c5.setId(row);
+                                c5.setId(row);
                                 c5.setText(String.valueOf(student.getStudentQuantity()));
                                 c5.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.border2));
 
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                         c4.setText(getString(R.string.c4_head2));
                         c5.setText(getString(R.string.c5_head2));
 
-                        Item item;
+                        /*Item item;
                         for (int row = 0; row < 20; row++) {
                             item = dbHandler.findItem(String.valueOf(row));
 
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
                                 c4.setPadding(10, 0, 10, 0);
                                 c5.setPadding(10, 0, 10, 0);
                             }
-                        }
+                        } */
                         break;
 
                     case 0:
@@ -194,9 +194,6 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent){
             }
         });
-
-        // database stuff
-
     }
 
     public boolean onTouchEvent(MotionEvent touchEvent){
